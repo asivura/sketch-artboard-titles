@@ -1,0 +1,21 @@
+var onRun = function(context) {
+  var sketch = context.api();
+var document = sketch.selectedDocument;
+var page = document.selectedPage;
+var selectedLayers = context.selection;
+var selectedCount = selectedLayers.count();
+
+if (selectedCount == 0) {
+  log('No layers are selected.');
+} else {
+  log('Selected layers:');
+  for (var i = 0; i < selectedCount; i++) {
+    var layer = selectedLayers[i];
+    log((i+1) + '. ' + layer.name() + '. ' + layer.frame().toString());
+    var textLayer = page.newText({alignment: NSTextAlignmentCenter,      systemFontSize: 18, text:layer.name()});
+    textLayer.adjustToFit()
+    textLayer.frame = new sketch.Rectangle(layer.frame().x(), layer.frame().y() - textLayer.frame.height - 4, textLayer.frame.width, textLayer.frame.height)
+      }
+};
+
+};

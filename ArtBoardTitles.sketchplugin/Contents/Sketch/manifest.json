@@ -1,0 +1,20 @@
+{
+  "author" : "asivura",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "name" : "ArtBoardTitles",
+      "identifier" : "add"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "add"
+    ],
+  },
+  "identifier" : "com.asivura.sketch.artboardtitles",
+  "version" : "0.1",
+  "description" : "Sketch plugin for add labels with art board titles",
+  "authorEmail" : "asivura@gmail.com",
+  "name" : "ArtBoardTitles"
+}
