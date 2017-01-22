@@ -3,11 +3,12 @@
   "commands" : [
     {
       "script" : "script.cocoascript",
-      "name" : "ArtBoardTitles",
+      "name" : "Add",
       "identifier" : "add"
     }
   ],
   "menu" : {
+    "title" : "Art Board Titles",
     "items" : [
       "add"
     ],
