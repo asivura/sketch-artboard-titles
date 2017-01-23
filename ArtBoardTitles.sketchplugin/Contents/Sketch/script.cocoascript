@@ -8,7 +8,7 @@ var onRun = function(context) {
   var app = [NSApplication sharedApplication];
 
   if (selectedCount == 0) {
-    [app displayDialog: "Please, select art boards to add titles" withTitle:"ArtBoardTitles"];
+    [app displayDialog: "Please, select art boards to add titles" withTitle:"Artboard Titles"];
     log('No layers are selected.');
   } else {
     var group = page.newGroup({name: "Artboard Titles"});
