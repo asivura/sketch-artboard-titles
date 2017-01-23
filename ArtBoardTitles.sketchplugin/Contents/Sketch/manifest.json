@@ -1,21 +1,22 @@
 {
-  "author" : "asivura",
+  "author" : "Alexander Sivura",
   "commands" : [
     {
       "script" : "script.cocoascript",
       "name" : "Add",
-      "identifier" : "add"
+      "shortcut" : "shift + ctrl + t",
+      "identifier" : "commands.add"
     }
   ],
   "menu" : {
-    "title" : "Art Board Titles",
+    "title" : "Artboard Titles",
     "items" : [
-      "add"
+      "commands.add"
     ],
   },
-  "identifier" : "com.asivura.sketch.artboardtitles",
-  "version" : "0.3",
+  "identifier" : "com.asivura.sketch.artboard-titles",
+  "version" : "1.0",
   "description" : "Sketch plugin for add labels with art board titles",
   "authorEmail" : "asivura@gmail.com",
-  "name" : "ArtBoardTitles"
+  "name" : "Artboard Titles"
 }

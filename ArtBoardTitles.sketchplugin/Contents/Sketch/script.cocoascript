@@ -1,29 +1,26 @@
 var onRun = function(context) {
+
   var sketch = context.api();
-var document = sketch.selectedDocument;
-var page = document.selectedPage;
-var selectedLayers = context.selection;
-var selectedCount = selectedLayers.count();
-var app = [NSApplication sharedApplication];
+  var document = sketch.selectedDocument;
+  var page = document.selectedPage;
+  var selectedLayers = context.selection;
+  var selectedCount = selectedLayers.count();
+  var app = [NSApplication sharedApplication];
 
-var group = page.newGroup({name: "Art Board Titles"});
-
-if (selectedCount == 0) {
-  [app displayDialog: "Please, select art boards to add titles" withTitle:"ArtBoardTitles"];
-  log('No layers are selected.');
-} else {
-  log('Selected layers:');
-  for (var i = 0; i < selectedCount; i++) {
-    var layer = selectedLayers[i];
-    log((i+1) + '. ' + layer.name() + '. ' + layer.frame().toString());
-    var textLayer = group.newText({alignment: NSTextAlignmentCenter, systemFontSize: 18, text: layer.name()});
-    textLayer.adjustToFit()
-    textLayer.frame = new sketch.Rectangle(
-      layer.frame().x(),
-      layer.frame().y() - textLayer.frame.height - 4,
-      textLayer.frame.width,
-      textLayer.frame.height)
+  if (selectedCount == 0) {
+    [app displayDialog: "Please, select art boards to add titles" withTitle:"ArtBoardTitles"];
+    log('No layers are selected.');
+  } else {
+    var group = page.newGroup({name: "Artboard Titles"});
+    for (var i = 0; i < selectedCount; i++) {
+      var layer = selectedLayers[i];
+      var textLayer = group.newText({alignment: NSTextAlignmentCenter, systemFontSize: 18, text: layer.name()});
+      textLayer.adjustToFit()
+      textLayer.frame = new sketch.Rectangle(
+        layer.frame().x(),
+        layer.frame().y() - textLayer.frame.height - 4,
+        textLayer.frame.width,
+        textLayer.frame.height)
       }
-};
-
-};
+    };
+  };
