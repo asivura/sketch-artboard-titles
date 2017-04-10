@@ -1,5 +1,4 @@
 var onRun = function(context) {
-
   var sketch = context.api();
   var document = sketch.selectedDocument;
   var page = document.selectedPage;
@@ -7,20 +6,59 @@ var onRun = function(context) {
   var selectedCount = selectedLayers.count();
   var app = [NSApplication sharedApplication];
 
+  var layers = [];
+  for (var i = 0; i < selectedCount; i++) {
+    layers.push(selectedLayers[i]);
+  }
+
+
   if (selectedCount == 0) {
     [app displayDialog: "Please, select art boards to add titles" withTitle:"Artboard Titles"];
     log('No layers are selected.');
   } else {
-    var group = page.newGroup({name: "Artboard Titles"});
+    const color = "#00ff00ff";
+    const artboard = page.newArtboard({name: "Artboard Titles", fills: [color]});
+    artboard.frame = getArtboardRectangle(layers);
+    artboard.moveToBack();
     for (var i = 0; i < selectedCount; i++) {
-      var layer = selectedLayers[i];
-      var textLayer = group.newText({alignment: NSTextAlignmentCenter, systemFontSize: 18, text: layer.name()});
+      var layer = layers[i];
+      print(layer.name())
+      var textLayer = artboard.newText({alignment: NSTextAlignmentLeft, systemFontSize: 18, text: layer.name()});
       textLayer.adjustToFit()
       textLayer.frame = new sketch.Rectangle(
-        layer.frame().x(),
-        layer.frame().y() - textLayer.frame.height - 4,
+        layer.frame().x() - artboard.frame.x,
+        layer.frame().y() - artboard.frame.y - textLayer.frame.height - 4,
         textLayer.frame.width,
         textLayer.frame.height)
       }
     };
+
+    function getArtboardRectangle(layers) {
+      const layer = layers[0];
+      var minX = layer.frame().x();
+      var minY = layer.frame().y();
+      var maxX = layer.frame().x() + layer.frame().width();
+      var maxY = layer.frame().y() + layer.frame().height();
+
+      for (var i = 1; i < selectedCount; i++) {
+        const layer = layers[i];
+        const x1 = layer.frame().x();
+        const y1 = layer.frame().y();
+        const x2 = layer.frame().x() + layer.frame().width();
+        const y2 = layer.frame().y() + layer.frame().height();
+        if (x1 < minX) minX = x1;
+        if (y1 < minY) minY = y1;
+        if (x2 > maxX) maxX = x2;
+        if (y2 > maxY) maxY = y2;
+      }
+
+      const margin = 200
+
+      return new sketch.Rectangle(
+        minX - margin,
+        minY - margin,
+        maxX - minX + 2*margin,
+        maxY - minY + 2*margin)
+    }
+
   };
