@@ -18,11 +18,11 @@ https://github.com/integration/sketchpacks-relay
 1. Select artboards you want to export
 ![Step 1](/images/git-step-01.gif)
 2. Run plugin from menu or ‘ctrl + shift + T’. Plugin creates New Artboard behind selected artboards with 200 px padding with text layers
-![Step 2](/images/git_step-02.gif)
+![Step 2](/images/git-step-02.gif)
 3. Now you can change size, color, position of artboard and text layers (if you need to)
-![Step 3](/images/git_step-03.gif)
+![Step 3](/images/git-step-03.gif)
 4. Export New Artboard in preferred format.
-![Step 4](/images/git_step-04.gif)
+![Step 4](/images/git-step-04.gif)
 5. Enjoy!
 
 ## Special thanks
