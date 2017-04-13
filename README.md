@@ -9,9 +9,9 @@ It is the simplest way to name each artboard before export.
 1. Download the zip file with the plugin
 2. Double click on ArtBoardTitles.sketchplugin
 
-or
+<!-- or
 
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Artboards Titles with Sketchpacks")](https://sketchpacks.com/asivura/sketch-artboard-titles/install)
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Artboards Titles with Sketchpacks")](https://sketchpacks.com/asivura/sketch-artboard-titles/install) -->
 
 ## Usage
 
