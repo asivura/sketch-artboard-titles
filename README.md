@@ -11,7 +11,7 @@ It is the simplest way to name each artboard before export.
 
 or
 
-https://github.com/integration/sketchpacks-relay
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Artboards Titles with Sketchpacks")](https://sketchpacks.com/asivura/sketch-artboard-titles/install)
 
 ## Usage
 
